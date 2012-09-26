@@ -54,7 +54,8 @@ function update_notifier_bar_menu() {
 		return;
 		
 		$xml = get_latest_plugin_version(PLUGIN_NOTIFIER_CACHE_INTERVAL); // Get the latest remote XML file on our server
-		$plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . NOTIFIER_PLUGIN_FOLDER_NAME . '/' .NOTIFIER_PLUGIN_FILE_NAME); // Read plugin current version from the main plugin file
+		if ( is_admin() )
+			$plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . NOTIFIER_PLUGIN_FOLDER_NAME . '/' .NOTIFIER_PLUGIN_FILE_NAME); // Read plugin current version from the main plugin file
 	
 		if( (string)$xml->latest > (string)$plugin_data['Version']) { // Compare current plugin version with the remote XML version
 			$wp_admin_bar->add_menu( array( 'id' => 'plugin_update_notifier', 'title' => '<span>' . NOTIFIER_PLUGIN_NAME . ' <span id="ab-updates">New Updates</span></span>', 'href' => get_admin_url() . 'index.php?page=plugin-update-notifier' ) );
