@@ -21,7 +21,7 @@
 define( 'XXX_NOTIFIER_PLUGIN_NAME', 'Your Plugin Name' ); // The plugin name
 define( 'XXX_NOTIFIER_PLUGIN_SHORT_NAME', 'ABC' ); // The plugin short name, only if needed to make the menu item fit. Remove this if not needed
 define( 'XXX_NOTIFIER_PLUGIN_FOLDER_NAME', 'name-of-your-plugin-folder' ); // The plugin folder name
-define( 'XXX_NOTIFIER_PLUGIN_FILE_NAME', 'main-plugin-file.php' ); // The plugin folder name
+define( 'XXX_NOTIFIER_PLUGIN_FILE_NAME', 'main-plugin-file.php' ); // The plugin file name
 define( 'XXX_NOTIFIER_PLUGIN_XML_FILE', 'http://yoururl.com/updates/notifier.xml' ); // The remote notifier XML file containing the latest version of the plugin and changelog
 define( 'XXX_PLUGIN_NOTIFIER_CACHE_INTERVAL', 21600 ); // The time interval for the remote XML cache in the database (21600 seconds = 6 hours)
 define( 'XXX_PLUGIN_NOTIFIER_CODECANYON_USERNAME', 'yourusername' ); // Your Codecanyon username
@@ -88,7 +88,7 @@ function xxx_update_notifier() {
 		<div id="instructions">
 		    <h3>Update Download and Instructions</h3>
 		    <p><strong>Please note:</strong> make a <strong>backup</strong> of the Plugin inside your WordPress installation folder <strong>/wp-content/plugins/<?php echo XXX_NOTIFIER_PLUGIN_FOLDER_NAME; ?>/</strong></p>
-		    <p>To update the Theme, login to <a href="http://www.codecanyon.net/?ref=<?php echo XXX_PLUGIN_NOTIFIER_CODECANYON_USERNAME; ?>">CodeCanyon</a>, head over to your <strong>downloads</strong> section and re-download the plugin like you did when you bought it.</p>
+		    <p>To update the Plugin, login to <a href="http://www.codecanyon.net/?ref=<?php echo XXX_PLUGIN_NOTIFIER_CODECANYON_USERNAME; ?>">CodeCanyon</a>, head over to your <strong>downloads</strong> section and re-download the plugin like you did when you bought it.</p>
 		    <p>Extract the zip's contents, look for the extracted plugin folder, and after you have all the new files upload them using FTP to the <strong>/wp-content/plugins/<?php echo XXX_NOTIFIER_PLUGIN_FOLDER_NAME; ?>/</strong> folder overwriting the old ones (this is why it's important to backup any changes you've made to the plugin files).</p>
 		    <p>If you didn't make any changes to the plugin files, you are free to overwrite them with the new ones without the risk of losing any plugins settings, and backwards compatibility is guaranteed.</p>
 		</div>
