@@ -52,12 +52,11 @@ function xxx_update_notifier_bar_menu() {
 	if (function_exists('simplexml_load_string')) { // Stop if simplexml_load_string funtion isn't available
 		global $wp_admin_bar, $wpdb;
 
-		if ( !is_super_admin() || !is_admin_bar_showing() ) // Don't display notification in admin bar if it's disabled or the current user isn't an administrator
+		if ( !is_super_admin() || !is_admin_bar_showing() || !is_admin() ) // Don't display notification in admin bar if it's disabled or the current user isn't an administrator
 		return;
 
-		$xml 			= xxx_get_latest_plugin_version(XXX_PLUGIN_NOTIFIER_CACHE_INTERVAL); // Get the latest remote XML file on our server
-		if ( is_admin() )
-			$plugin_data 	= get_plugin_data(WP_PLUGIN_DIR . '/' . XXX_NOTIFIER_PLUGIN_FOLDER_NAME . '/' .XXX_NOTIFIER_PLUGIN_FILE_NAME); // Read plugin current version from the main plugin file
+		$xml 		= xxx_get_latest_plugin_version(XXX_PLUGIN_NOTIFIER_CACHE_INTERVAL); // Get the latest remote XML file on our server
+		$plugin_data 	= get_plugin_data(WP_PLUGIN_DIR . '/' . XXX_NOTIFIER_PLUGIN_FOLDER_NAME . '/' .XXX_NOTIFIER_PLUGIN_FILE_NAME); // Read plugin current version from the main plugin file
 
 		if( (string)$xml->latest > (string)$plugin_data['Version']) { // Compare current plugin version with the remote XML version
 			$wp_admin_bar->add_menu( array( 'id' => 'plugin_update_notifier', 'title' => '<span>' . XXX_NOTIFIER_PLUGIN_NAME . ' <span id="ab-updates">New Updates</span></span>', 'href' => get_admin_url() . 'index.php?page=xxx-plugin-update-notifier' ) );
